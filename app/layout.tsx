@@ -33,7 +33,8 @@ export default function RootLayout({
         {/* anything here appears on every page */}
         <Link href="/"> Home | </Link>
         <Link href="/about">About | </Link>
-        <Link href="/contact">Contact</Link>
+        <Link href="/contact">Contact | </Link>
+        <Link href="/users">Users</Link>
         {children} {/* this is where the page content goes */}
       </body>
     </html>
