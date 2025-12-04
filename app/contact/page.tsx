@@ -12,6 +12,7 @@
 //           Generates HTML → Sends to browser → Done (no more renders)
 
 import Image from "next/image";
+import ClientButton from "./ClientButton";
 
 export default async function Contact() {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -32,6 +33,16 @@ export default async function Contact() {
         height={20}
         priority
       />
+
+{/* cannot use the button click event in a server component because it is a client side event */}
+
+      {/* <button onClick={() => {
+        alert("hello from the button");
+      }}>Click me</button> */}
+
+{/* create a new client component to handle the button click event */}
+      <ClientButton />
+
     </>
   );
 }
