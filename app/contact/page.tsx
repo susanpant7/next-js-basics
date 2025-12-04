@@ -1,6 +1,23 @@
+// this is a server component
+// Fetch-then-render
+// server components are used to render the page on the server and send the HTML to the client
+// loads the page faster because the javascript are not downloaded and executed in the browser
+// search engines can index the page faster 
+// the search engines can crawl into the contents of the page without having to rely on javascript
+// react hooks cannot be used in server components
+// browser specific code like useState, useEffect, useContext, onclick, etc. cannot be used in server components
+
+// server components can be async
+// Request → Server runs async component → Waits for all awaits → 
+//           Generates HTML → Sends to browser → Done (no more renders)
+
 import Image from "next/image";
 
-export default function Contact() {
+export default async function Contact() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+    console.log(data);
+
   return (
     <>
       <div>Contact</div>
