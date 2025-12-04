@@ -13,7 +13,10 @@ export default async function Users() {
             <div key={user.id} style={{ marginBottom: "8px" }}>
             {user.name}{" "}
             <Link href={`/users/${user.id}`}>
-                <button>View User {user.id}</button>
+                <button className="px-4 py-2 bg-blue-600 text-white 
+                                    rounded hover:bg-blue-700 transition">
+                    View User {user.id}
+                </button>
             </Link>
             </div>
         ))}

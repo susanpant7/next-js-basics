@@ -1,4 +1,5 @@
 import { User } from "@/app/types/User";
+import { notFound } from "next/navigation";
 
 interface UserPageProps {
     params: Promise<{
@@ -11,8 +12,11 @@ export default async function UserDetails({params}: UserPageProps) {
     const response = await fetch(
         `https://jsonplaceholder.typicode.com/users/${userId}`
       );
+      if(!response.ok){
+        return notFound();
+      }
       const user: User = await response.json();
-
+      
       return (
         <>
             <div>
